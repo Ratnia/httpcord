@@ -26,14 +26,13 @@ from __future__ import annotations
 
 import datetime
 from enum import IntEnum
-from typing import Literal, Union
+from typing import Literal, Union, Any
 
 from httpcord.asset import Asset
 from httpcord.user import User
 from httpcord.utils.functions import from_timestamp
 
-
-__all__: tuple[str, ...] = (
+__all__ = (
     "Channel",
     "BaseChannel",
     "GuildChannel",
@@ -57,10 +56,13 @@ class ChannelType(IntEnum):
     GUILD_DIRECTORY = 14
     GUILD_FORUM = 15
     GUILD_MEDIA = 16
+    GUILD_NEWS = 17
+    GUILD_NEWS_THREAD = 18
+    GUILD_STAGE = 19
 
 
 class BaseChannel:
-    __slots__: tuple[str, ...] = (
+    __slots__ = (
         "_data",
         "_id",
         "_flags",
@@ -69,7 +71,7 @@ class BaseChannel:
         "_last_pin_timestamp",
     )
 
-    def __init__(self, data: dict) -> None:
+    def __init__(self, data: dict[str, Any]) -> None:
         self._data = data
         self._id: int = int(data["id"])
         self._flags: int = data.get("flags", 0)

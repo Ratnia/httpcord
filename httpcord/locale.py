@@ -34,6 +34,7 @@ __all__: tuple[str, ...] = (
 )
 
 SupportedLocalesLiterals = Literal[
+    "ar"
     "id",
     "da",
     "de",
@@ -70,6 +71,7 @@ SupportedLocalesLiterals = Literal[
 
 
 class SupportedLocales(StrEnum):
+    ar = "ar" # arabic
     id = "id"  # Indonesian
     da = "da"  # Danish
     de = "de"  # German

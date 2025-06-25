@@ -28,6 +28,7 @@ from typing import (
     TYPE_CHECKING,
     Any,
     Final,
+    Optional,
 )
 
 from fastapi import Request
